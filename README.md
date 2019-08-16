@@ -28,7 +28,9 @@ Add these values to your pom.xml file:
 ```xml
 <dependencies>
     <dependency>
-
+      <groupId>io.ipfinder.api</groupId>
+      <artifactId>ipfinder-io</artifactId>
+      <version>1.0.0</version>
     </dependency>
 </dependencies>
 ```
