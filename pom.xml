@@ -4,7 +4,7 @@
    <groupId>io.ipfinder.api</groupId>
    <artifactId>ipfinder-io</artifactId>
    <packaging>jar</packaging>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
    <properties>
       <!-- https://maven.apache.org/general.html#encoding-warning -->
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
