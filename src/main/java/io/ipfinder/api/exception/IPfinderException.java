@@ -7,7 +7,7 @@ public class IPfinderException extends Exception   {
 
  
 
-	public IPfinderException(String e) {
+	public IPfinderException(final String e) {
         super(e);
     }
 
