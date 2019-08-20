@@ -39,6 +39,7 @@ Add these values to your pom.xml file:
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.IPResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 public class Main {
@@ -48,7 +49,13 @@ public class Main {
 
         try {
             // lookup your IP address information
-            ipfinder.authentication();
+            IPResponse response = ipfinder.authentication();
+
+            System.out.println(response.toString());
+
+            // print city name
+            System.out.println(response.getCity());
+
         } catch (IPfinderException e) {
             // Handle error
         }
@@ -61,6 +68,7 @@ public class Main {
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.IPResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 
@@ -71,7 +79,13 @@ public class Main {
 
         try {
             // lookup your IP address information
-            ipfinder.authentication();
+            IPResponse response = ipfinder.authentication();
+            
+            System.out.println(response.toString());
+
+            // print city name
+            System.out.println(response.getCity());
+
         } catch (IPfinderException e) {
             // Handle error
         }
@@ -84,6 +98,7 @@ public class Main {
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.IPResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 
@@ -94,9 +109,17 @@ public class Main {
         Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
 
         try {
+
             // lookup your IP address information
             String ip = "5.2.0.2";
-            ipfinder.getAddressInfo(ip);
+            
+            IPResponse response = ipfinder.getAddressInfo(ip);
+
+            System.out.println(response.toString());
+
+            // print city name
+            System.out.println(response.getCity());
+
         } catch (IPfinderException e) {
             // Handle error
         }
@@ -110,6 +133,7 @@ This API available as part of our Pro and enterprise [https://ipfinder.io/pricin
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.AsnResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 
@@ -121,8 +145,15 @@ public class Main {
 
         try {
             // lookup Asn information
-            String asn = "as1";
-            ipfinder.authentication(asn);
+            String asn = "as36947";
+
+            AsnResponse response = ipfinder.getAsn(asn);
+
+            // print data
+            System.out.println(response);
+
+            // print continent name
+            System.out.println(response.getContinentName());
         } catch (IPfinderException e) {
             // Handle error
         }
@@ -138,22 +169,29 @@ formats supported are :  `apache_allow`, `apache_deny`,`nginx_allow`,`nginx_deny
 import io.ipfinder.api.Ipfinder;
 import io.ipfinder.api.exception.IPfinderException;
 
-
 public class Main {
 
     public static void main(String... args) {
-        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
+        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
-            // lookup Asn Firewall information
+
             String asn = "as36947";
+
             String format = "nginx_deny";
-            ipfinder.getFirewall(asn,format);
-        } catch (IPfinderException e) {
+
+            String response = ipfinder.getFirewall(asn,format);
+
+            // print data
+            System.out.println(response);
+            
+        } catch (IPfinderException ex) {
             // Handle error
+            System.out.println(e);
         }
     }
 }
+
 
 ```
 
@@ -162,47 +200,55 @@ This API available as part of our  enterprise [https://ipfinder.io/pricing](http
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.RangeResponse;
 import io.ipfinder.api.exception.IPfinderException;
-
 
 public class Main {
 
     public static void main(String... args) {
-        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
+        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
-            // lookup Organization information
+
             String org = "Telecom Algeria";
-            ipfinder.getRanges(org);
-        } catch (IPfinderException e) {
+            
+            RangeResponse response = ipfinder.getRanges(org);
+
+            // print data
+            System.out.println(response);
+
+        } catch (IPfinderException ex) {
             // Handle error
+            System.out.println(e);
         }
     }
 }
-
 ```
 
 ## Get service status
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.StatusResponse;
 import io.ipfinder.api.exception.IPfinderException;
-
 
 public class Main {
 
     public static void main(String... args) {
-        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
+        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
-            // lookup IP TOKEN information
-            ipfinder.getStatus();
-        } catch (IPfinderException e) {
+            
+            StatusResponse response = ipfinder.getStatus();
+
+            // print data
+            System.out.println(response);
+        } catch (IPfinderException ex) {
             // Handle error
+            System.out.println(e);
         }
     }
 }
-
 ```
 
 ## Get Domain IP
@@ -210,22 +256,29 @@ public class Main {
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.DomainResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 public class Main {
 
     public static void main(String... args) {
-        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
+        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
+
             String name = "google.com";
-            ipfinder.getDomain(name);
-        } catch (IPfinderException e) {
+            
+            DomainResponse response = ipfinder.getDomain(name);
+
+            // print data
+            System.out.println(response);
+
+        } catch (IPfinderException ex) {
             // Handle error
+            System.out.println(e);
         }
     }
 }
-
 ```
 
 ## Get Domain IP history
@@ -234,22 +287,29 @@ public class Main {
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.DomainHtResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 public class Main {
 
     public static void main(String... args) {
-        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
+        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
+
             String name = "google.com";
-            ipfinder.getDomainHistory(name);
-        } catch (IPfinderException e) {
+
+            DomainHtResponse response = ipfinder.getDomainHistory(name);
+
+            // print data
+            System.out.println(response);
+
+        } catch (IPfinderException ex) {
             // Handle error
+            System.out.println(e);
         }
     }
 }
-
 ```
 
 ## Get list Domain By ASN, Country,Ranges
@@ -257,20 +317,25 @@ public class Main {
 
 ```java
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.DomainByResponse;
 import io.ipfinder.api.exception.IPfinderException;
-
-// list live domain by country DZ,US,TN,FR,MA
 
 public class Main {
 
     public static void main(String... args) {
-        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", ""); 
+        Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
             String by = "DZ";
-            ipfinder.getDomainBy(by);
-        } catch (IPfinderException e) {
+
+            DomainByResponse response = ipfinder.getDomainBy(by);
+
+            // print data
+            System.out.println(response);
+
+        } catch (IPfinderException ex) {
             // Handle error
+            System.out.println(e);
         }
     }
 }
@@ -278,7 +343,7 @@ public class Main {
 ```
 
 ## Add proxy
-```javascript
+```java
 Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "https://ipfinder.yourdomain.com");
 ```
 
