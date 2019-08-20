@@ -1,24 +1,22 @@
 /**
  * Copyright (C) 2019 Mohamed Ben rebia.
  */
-package io.ipfinder.api.data;
+package io.ipfinder.api.data.range;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class ListPrefix {
 
+    @SerializedName("asn")
+    @Expose
     private String asn;
+    @SerializedName("prefix")
+    @Expose
     private String prefix;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public ListPrefix() {
-    }
+
 
     /**
      * 
@@ -26,7 +24,6 @@ public class ListPrefix {
      * @param asn
      */
     public ListPrefix(String asn, String prefix) {
-        super();
         this.asn = asn;
         this.prefix = prefix;
     }
@@ -43,15 +40,9 @@ public class ListPrefix {
 
     
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("asn", asn).append("prefix", prefix).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("asn", asn).append("prefix", prefix).toString();
     }
 
 }

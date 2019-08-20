@@ -3,25 +3,29 @@
  */
 package io.ipfinder.api.data.domainby;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class ListDomain {
 
+    @SerializedName("domain_name")
+    @Expose
     private String domainName;
+    @SerializedName("address")
+    @Expose
     private String address;
+    @SerializedName("country")
+    @Expose
     private String country;
+    @SerializedName("asn")
+    @Expose
     private String asn;
+    @SerializedName("organization")
+    @Expose
     private String organization;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public ListDomain() {
-    }
+
 
     /**
      * 
@@ -32,7 +36,6 @@ public class ListDomain {
      * @param country
      */
     public ListDomain(String domainName, String address, String country, String asn, String organization) {
-        super();
         this.domainName = domainName;
         this.address = address;
         this.country = country;
@@ -70,15 +73,9 @@ public class ListDomain {
 
     
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("domainName", domainName).append("address", address).append("country", country).append("asn", asn).append("organization", organization).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("domainName", domainName).append("address", address).append("country", country).append("asn", asn).append("organization", organization).toString();
     }
 
 }

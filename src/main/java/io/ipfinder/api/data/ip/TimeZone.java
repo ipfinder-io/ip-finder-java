@@ -1,75 +1,71 @@
 /**
  * Copyright (C) 2019 Mohamed Ben rebia.
  */
-package io.ipfinder.api.data;
+package io.ipfinder.api.data.ip;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class TimeZone {
 
-    private String id;
-    private String uTC;
-    private long gmtOffset;
-    private String currentTime;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+@SerializedName("id")
+@Expose
+private String id;
+@SerializedName("UTC")
+@Expose
+private String uTC;
+@SerializedName("gmt_offset")
+@Expose
+private long gmtOffset;
+@SerializedName("current_time")
+@Expose
+private String currentTime;
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public TimeZone() {
-    }
 
-    /**
-     * 
-     * @param currentTime
-     * @param uTC
-     * @param id
-     * @param gmtOffset
-     */
-    public TimeZone(String id, String uTC, long gmtOffset, String currentTime) {
-        super();
-        this.id = id;
-        this.uTC = uTC;
-        this.gmtOffset = gmtOffset;
-        this.currentTime = currentTime;
-    }
 
-    public String getId() {
-        return id;
-    }
+/**
+*
+* @param currentTime
+* @param uTC
+* @param id
+* @param gmtOffset
+*/
+public TimeZone(String id, String uTC, long gmtOffset, String currentTime) {
+this.id = id;
+this.uTC = uTC;
+this.gmtOffset = gmtOffset;
+this.currentTime = currentTime;
+}
 
-    
+public String getId() {
+return id;
+}
 
-    public String getUTC() {
-        return uTC;
-    }
 
-    
 
-    public long getGmtOffset() {
-        return gmtOffset;
-    }
+public String getUTC() {
+return uTC;
+}
 
-    
 
-    public String getCurrentTime() {
-        return currentTime;
-    }
 
-    
+public long getGmtOffset() {
+return gmtOffset;
+}
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
 
-    
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("uTC", uTC).append("gmtOffset", gmtOffset).append("currentTime", currentTime).append("additionalProperties", additionalProperties).toString();
-    }
+public String getCurrentTime() {
+return currentTime;
+}
+
+
+
+@Override
+public String toString() {
+return new ToStringBuilder(this).append("id", id).append("uTC", uTC).append("gmtOffset", gmtOffset).append("currentTime", currentTime).toString();
+}
 
 }
+

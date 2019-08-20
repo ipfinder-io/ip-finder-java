@@ -1,58 +1,48 @@
 /**
  * Copyright (C) 2019 Mohamed Ben rebia.
  */
-package io.ipfinder.api.data;
+package io.ipfinder.api.data.ip;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Header {
 
-    private long totalUserAgent;
-    private List<ListUserAgent> listUserAgent = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+@SerializedName("total_user_agent")
+@Expose
+private long totalUserAgent;
+@SerializedName("list_user_agent")
+@Expose
+private List<ListUserAgent> listUserAgent = null;
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public Header() {
-    }
 
-    /**
-     * 
-     * @param totalUserAgent
-     * @param listUserAgent
-     */
-    public Header(long totalUserAgent, List<ListUserAgent> listUserAgent) {
-        super();
-        this.totalUserAgent = totalUserAgent;
-        this.listUserAgent = listUserAgent;
-    }
+/**
+*
+* @param totalUserAgent
+* @param listUserAgent
+*/
+public Header(long totalUserAgent, List<ListUserAgent> listUserAgent) {
+this.totalUserAgent = totalUserAgent;
+this.listUserAgent = listUserAgent;
+}
 
-    public long getTotalUserAgent() {
-        return totalUserAgent;
-    }
+public long getTotalUserAgent() {
+return totalUserAgent;
+}
 
-    
 
-    public List<ListUserAgent> getListUserAgent() {
-        return listUserAgent;
-    }
 
-    
+public List<ListUserAgent> getListUserAgent() {
+return listUserAgent;
+}
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
 
-    
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this).append("totalUserAgent", totalUserAgent).append("listUserAgent", listUserAgent).append("additionalProperties", additionalProperties).toString();
-    }
+@Override
+public String toString() {
+return new ToStringBuilder(this).append("totalUserAgent", totalUserAgent).append("listUserAgent", listUserAgent).toString();
+}
 
 }

@@ -3,83 +3,69 @@
  */
 package io.ipfinder.api.data.ip;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Connection {
 
-    private String asn;
-    private String organization;
-    private String domain;
-    private String type;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+@SerializedName("asn")
+@Expose
+private String asn;
+@SerializedName("organization")
+@Expose
+private String organization;
+@SerializedName("domain")
+@Expose
+private String domain;
+@SerializedName("type")
+@Expose
+private String type;
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public Connection() {
-    }
 
-    /**
-     * 
-     * @param organization
-     * @param domain
-     * @param asn
-     * @param type
-     */
-    public Connection(String asn, String organization, String domain, String type) {
-        super();
-        this.asn = asn;
-        this.organization = organization;
-        this.domain = domain;
-        this.type = type;
-    }
 
-    public String getAsn() {
-        return asn;
-    }
+/**
+*
+* @param organization
+* @param domain
+* @param asn
+* @param type
+*/
+public Connection(String asn, String organization, String domain, String type) {
+this.asn = asn;
+this.organization = organization;
+this.domain = domain;
+this.type = type;
+}
 
-    public void setAsn(String asn) {
-        this.asn = asn;
-    }
+public String getAsn() {
+return asn;
+}
 
-    public String getOrganization() {
-        return organization;
-    }
 
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
 
-    public String getDomain() {
-        return domain;
-    }
+public String getOrganization() {
+return organization;
+}
 
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
 
-    public String getType() {
-        return type;
-    }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+public String getDomain() {
+return domain;
+}
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
 
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this).append("asn", asn).append("organization", organization).append("domain", domain).append("type", type).append("additionalProperties", additionalProperties).toString();
-    }
+public String getType() {
+return type;
+}
+
+
+
+@Override
+public String toString() {
+return new ToStringBuilder(this).append("asn", asn).append("organization", organization).append("domain", domain).append("type", type).toString();
+}
 
 }

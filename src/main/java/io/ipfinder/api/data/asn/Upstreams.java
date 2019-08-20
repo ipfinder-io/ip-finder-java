@@ -3,23 +3,21 @@
  */
 package io.ipfinder.api.data.asn;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Upstreams {
 
+    @SerializedName("total_upstreams")
+    @Expose
     private long totalUpstreams;
+    @SerializedName("list_upstreams")
+    @Expose
     private List<String> listUpstreams = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public Upstreams() {
-    }
+
 
     /**
      * 
@@ -27,7 +25,6 @@ public class Upstreams {
      * @param listUpstreams
      */
     public Upstreams(long totalUpstreams, List<String> listUpstreams) {
-        super();
         this.totalUpstreams = totalUpstreams;
         this.listUpstreams = listUpstreams;
     }
@@ -44,15 +41,9 @@ public class Upstreams {
 
     
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("totalUpstreams", totalUpstreams).append("listUpstreams", listUpstreams).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("totalUpstreams", totalUpstreams).append("listUpstreams", listUpstreams).toString();
     }
 
 }

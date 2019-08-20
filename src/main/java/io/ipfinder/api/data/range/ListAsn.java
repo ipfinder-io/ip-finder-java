@@ -3,25 +3,29 @@
  */
 package io.ipfinder.api.data.range;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class ListAsn {
 
+    @SerializedName("asn")
+    @Expose
     private String asn;
+    @SerializedName("OrgId")
+    @Expose
     private String orgId;
+    @SerializedName("Total_prefix")
+    @Expose
     private String totalPrefix;
+    @SerializedName("Total_v4")
+    @Expose
     private String totalV4;
+    @SerializedName("Total_v6")
+    @Expose
     private String totalV6;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public ListAsn() {
-    }
+
 
     /**
      * 
@@ -32,7 +36,6 @@ public class ListAsn {
      * @param totalV4
      */
     public ListAsn(String asn, String orgId, String totalPrefix, String totalV4, String totalV6) {
-        super();
         this.asn = asn;
         this.orgId = orgId;
         this.totalPrefix = totalPrefix;
@@ -70,15 +73,9 @@ public class ListAsn {
 
     
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("asn", asn).append("orgId", orgId).append("totalPrefix", totalPrefix).append("totalV4", totalV4).append("totalV6", totalV6).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("asn", asn).append("orgId", orgId).append("totalPrefix", totalPrefix).append("totalV4", totalV4).append("totalV6", totalV6).toString();
     }
 
 }
