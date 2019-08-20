@@ -12,25 +12,24 @@ import io.ipfinder.api.exception.IPfinderException;
  */
 public class Asnvalidation {
 
-  /**
-   * Helper method for validating an argument if it is asn number
-   * 
-   * @param asn The AS number you want details for
-   * @throws IPfinderException
-   */
-  public void validate(String asn) throws IPfinderException {
+	/**
+	 * Helper method for validating an argument if it is asn number
+	 * 
+	 * @param asn The AS number you want details for
+	 * @throws IPfinderException
+	 */
+	public void validate(String asn) throws IPfinderException {
 
-  	String pattern = "^(as|AS)(\\d+)$";
+		String pattern = "^(as|AS)(\\d+)$";
 
-  	Pattern r = Pattern.compile(pattern);
+		Pattern r = Pattern.compile(pattern);
 
-      Matcher m = r.matcher(asn);
+		Matcher m = r.matcher(asn);
 
-      if (!m.find()) {
-         throw new IPfinderException("Invalid Domain name");
-      }
-      
+		if (!m.find()) {
+			throw new IPfinderException("Invalid Domain name");
+		}
 
-  }
+	}
 
 }

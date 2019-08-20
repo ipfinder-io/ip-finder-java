@@ -3,12 +3,10 @@
  */
 package io.ipfinder.api.exception;
 
-public class IPfinderException extends Exception   {
-
- 
+public class IPfinderException extends Exception {
 
 	public IPfinderException(final String e) {
-        super(e);
-    }
+		super(e);
+	}
 
 }
