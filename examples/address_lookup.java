@@ -1,6 +1,5 @@
-package examples;
-
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.IPResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 public class Main {
@@ -11,7 +10,15 @@ public class Main {
         try {
             
             String ip = "5.2.0.2";
-            ipfinder.getAddressInfo(ip);
+            
+            IPResponse response = ipfinder.getAddressInfo(ip);
+
+            System.out.println(response.toString());
+
+            // print city name
+            System.out.println(response.getCity());
+
+
         } catch (IPfinderException ex) {
             // Handle error
             System.out.println(ex);

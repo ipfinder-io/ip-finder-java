@@ -1,6 +1,5 @@
-package examples;
-
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.RangeResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 public class Main {
@@ -9,8 +8,14 @@ public class Main {
         Ipfinder ipfinder = new Ipfinder("YOUR_TOKEN_GOES_HERE", "");
 
         try {
+
         	String org = "Telecom Algeria";
-            ipfinder.getRanges(org);
+            
+            RangeResponse response = ipfinder.getRanges(org);
+
+            // print data
+            System.out.println(response);
+
         } catch (IPfinderException ex) {
             // Handle error
             System.out.println(e);

@@ -1,6 +1,5 @@
-package examples;
-
 import io.ipfinder.api.Ipfinder;
+import io.ipfinder.api.data.DomainByResponse;
 import io.ipfinder.api.exception.IPfinderException;
 
 public class Main {
@@ -10,7 +9,12 @@ public class Main {
 
         try {
         	String by = "DZ";
-            ipfinder.getDomainBy(by);
+
+            DomainByResponse response = ipfinder.getDomainBy(by);
+
+            // print data
+            System.out.println(response);
+
         } catch (IPfinderException ex) {
             // Handle error
             System.out.println(e);
